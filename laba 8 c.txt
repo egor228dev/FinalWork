@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <time.h>
+
+int massiv(int t) 
+{
+    srand(time(NULL));
+    int r[20];
+    int *ptr = r;
+    for(int i = 0; i < 20; i++)
+    {
+        ptr[i] = (rand() % 200) - 100;
+    }
+    return ptr[t];
+}
+
+int sum(int a, int b)
+{
+    return a + b;
+}
+
+int krat() 
+{
+    setlocale(LC_ALL, "RUS");
+    int k;
+    printf("Введите целое число: ");
+    scanf("%d", &k);
+    return k;
+}
+
+void rezult(int h) 
+{
+    setlocale(LC_ALL, "RUS");
+    printf("\nСумма положительных чисел: %d\n", h);
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    int suma = 0;
+    int kratt = krat();
+    for(int r = 0; r < 20; r++)
+    {
+        int m = massiv(r);
+        if (m % kratt == 0 && m > 0)
+        {
+            printf("%d, %d\n", m, kratt);
+            suma = sum(suma, m);
+        }   
+    }
+    for(int y = 0; y < 20; y++)
+    {
+        printf("ptr[%d]=%d, ", y, massiv(y));
+    }
+    rezult(suma);
+    return 0;
+}
