@@ -23,10 +23,10 @@ int sum(int a, int b)
 int krat() 
 {
     setlocale(LC_ALL, "RUS");
-    int k;
+    int kl;
     printf("Введите целое число: ");
     scanf("%d", &k);
-    return k;
+    return kl;
 }
 
 void rezult(int h) 
